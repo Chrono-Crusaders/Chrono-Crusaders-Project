@@ -196,6 +196,36 @@ These commands allow changes to the commit history of your Git repository. Use t
 
 ## Branching Strategies
 
+A branching strategy is critical for managing parallel development streams, maintaining code quailty and facilitating continuous integration. Various strategies exist, tailoring to different team sizes and project workflows.
+
+Most common strategies:
+
+- **Feature Branch Workflow**: Each new feature is developed in its own branch, which is eventually merged back into the main branch upon completion. The main branch always contains production-ready code.
+- **Gitflow Workflow**: Similar to Feature Branch. Involves two main branches with an infinite lifetime: master for production releases and develop for the next release development.
+- **Forking Workflow**: Used in open-source projects. Contributors must fork the repository and make pull requests to contribute their changes.
+
+### Gitflow Workflow Strategy
+
+Purpose: The Gitflow Workflow organizes the development process by separating releases, features, and maintenance work. This seperation ensures that ongoing development can continue on features without disrupting the main production environment and eases managing multiple versions.
+
+#### Lifecycle
+
+1. **Initialization**: Initialize `main` and `develop` for releases and development.
+2. **Feature Branches**: For each new feature, a branch is created from `develop`.
+3. **Integration**: After a feature is finalized, the `feature branch` is merged back into the `develop` branch.
+4. **Release Branches**: Once enough features have been developed, a `release branch` is created from `develop`, which will eventually become the next production release.
+5. **Hotfix Branches**: If an issue is discovered in the `release` or `main branch`, a `hotfix branch` is created to address the problem directly.
+6. **Integration**: `Release` branches are merged into both `develop` and `main` when they are ready to go live. Hotfix branches are also merged into both branches.
+7. **Deletion**: After merging, `feature` and `hotfix` branches are often deleted.
+
+![Gitflow Workflow](./images/gitflow_workflow.png)
+
+#### Tips
+
+- Use clear and descriptive names for branches to easily distinguish their purposes.
+- Employ pull requests for merge changes and implement code reviews.
+- Regularly update all branches with changes from the main or develop branches to minimize conflicts.
+
 ## Best Practices
 
 - Commit often and with descriptive messages.
