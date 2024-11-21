@@ -109,23 +109,90 @@ To integrate changes from other branches into your branch, use:
 
 This is particularly useful when multiple team members' changes need to be consolidated or when major updates have been made to the main development branch since your last update.
 
----
-
 ## Summary of Commands
 
 ### Basic Git Commands
 
+- `git init`: Initialize a local Git repository in your current directory
+- `git add <file name>`: Add one or multiple files to the staging area
+- `git commit -m <message>`: Commit your staged content as a new commit snapshot
+- `git reset HEAD`: Remove all changes from the staging area
+- `git reset HEAD <file>`: Remove a file from the staging area
+- `git mv <original file> <new file>`: Move or rename a file and stage the change
+- `git rm <file>`: Remove file from the working directory and stage the change
+
 ### Config Commands
+
+- `git config --list`: List current Git configuration
+- `git config --list --show-origin`: Show where different configuration settings are coming from
+- `git config --global user.name`: Get global user name
+- `git config -- global user.name <your name>`: Set global user name
+- `git config user.name`: Get local user name (returns global if no local exist)
+- `git config user.name <your name>`: Set local user name
+- `git config --global user.email <your email>`: Set global user email
+- `git config --global core.editor <editor>`: Set global text editor for merge and commit messages
 
 ### Working with Branches
 
+- `git branch`: List local branches
+- `git branch -m <old name> <new name>`: Rename a local branch
+- `git branch -d <branch-name>`: Delete a branch
+- `git checkout`: Switch from one branch to another
+- `git checkout -b <branch-name>`: Create and switch to a new branch
+
 ### Merging, Rebase and Conflicts
+
+- `git merge <branch>`: Merge the specified branch's history into the current one to combine changes
+- `git rebase <branch>`: Reapply commits on top of another base. Alternative to merging that can help maintain a cleaner project history
+
+Merging and rebasing can lead to conflicts. You will either need to resolve the conflict or to abort the merge/ rebase:
+
+**Resolving**:
+
+- When a conflict arises, Git will pause the process, allowing you to fix the conflicts manually.
+- Confilcted files are marked in the project directory (or use `git status`).
+- Conflicts are marked within the file with `<<<<<<<`, `=======` and `>>>>>>>` You can directly edit the files to fix inconsistencies.
+- Once conflicts are resolved: Add the files and make a commit with `git commit`. Git will offer a pre-filled commit message realted to the merge.
+
+**Aborting**:
+
+- Aborting resets the branch to the state before the merge or rebase began.
+- To abort a merge: `git merge --abort`
+- To abort a rebase: `git rebase --abort`
+
+Ensure you either resolve the conflicts or abort the merge/rebase process. Failing to do so can lead to a confusing git history and increase the risk of errors in future operations.
 
 ### Repository Inspection
 
+- `git status`: Check the status of working directory and staging area
+- `git log`: Display the entire commit history using the default format
+- `git log --graph`: Displays the entire commit history using an ASCII graph
+- `git diff`: Show changes between the working directory and the staging area
+- `git diff <commit 1> <commit 2>`: Show differences between two commits
+- `git show`: Show details of the last commit
+- `git show <commit>`: Show details of a specific commit
+- `git blame <file>`: Display the revision and author information line-by-line for a file
+
 ### Version Control Modification
 
+These commands allow changes to the commit history of your Git repository. Use them carefully as they can alter the historical integrity of your project.
+
+- `git commit --amend`: Modify the most recent commit, by either correcting the commit message or the applied changes
+- `git revert <commit ID>`: Creates a new commit that reverses the effects of a previous commit
+- `git reset --hard <commit ID>`: Reset current branch to the state of a certain commit and discard all changes in the working directory and staging area
+
 ### Using Remote Repositories
+
+- `git clone <repository link>`: Copy a remote repository
+- `git remote add <remote> <repository url>`: Link a local repository to a remote repository
+- `git remote -v`: List remote repositories along with their URLs
+- `git push`: Upload local repository content to the remote repository
+- `git push --set-upstream <remote> <branch name>`: Set the default remote branch for pushes
+- `git push --all`: Push all local branches to the remote repository
+- `git push --force`: Forces the push, potentially overwriting any changes in the remote repository that cause conflicts
+- `git pull`: Fetch and integrate changes from a remote repository to your local branch
+- `git pull --rebase`: Reapply your local changes on top of fetched changes
+- `git fetch origin <branch>`: Downloads data from a remote repository into the local branch, updating tracking branches without merging any changes
 
 ## Branching Strategies
 
