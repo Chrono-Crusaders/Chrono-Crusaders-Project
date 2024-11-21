@@ -26,13 +26,21 @@ This markdown file provides a detailed overview of Git, a widely-used version co
 - Designed to handle everything from small to very large projects with efficient and without interfering with each other.
 - There are many platforms for hosting git repositories such as GitLab and GitHub.
 
-Key Features
+### Key Features
 
-    Version control: Keeps a history of changes, allowing your to recert to previous versions.
-    Collaborating: Enables teams to work efficiently, even on large and complex projects.
-    Branching: Allows to experiment without affecting the main codebase and to work on multiple features simultaneously.
-    Speed: Designed for performance even in large projects.
-    Distributed nature: Every developer has a full copy of the repository, improving reliability and flexibility.
+**Version control**: Keeps a history of changes, allowing your to recert to previous versions.
+**Collaborating**: Enables teams to work efficiently, even on large and complex projects.
+**Branching**: Allows to experiment without affecting the main codebase and to work on multiple features simultaneously.
+**Speed: Designed for performance even in large projects.
+**Distributed nature**: Every developer has a full copy of the repository, improving reliability and flexibility.
+
+### Key Terms in Git
+
+**Repository**: A project folder tracked by Git.
+**Remote Repository**: A Git repository hosted on a server, like GitLab.
+**Commit**: A snapshot of changes saved to the repository.
+**Branch**: An independent line of development.
+**Merge**: Combining changes from one branch into another.
 
 ## Standard Git Workflow
 
